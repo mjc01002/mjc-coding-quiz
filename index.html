@@ -11,27 +11,32 @@
 
   <form class="header-timer" name="form_main">
     <div>
-      <span id=id="second">00</span>
+      <span id="second"></span>
     </div>
   </form>
 
   <body>
-    <div class="wrapper">
+      <div class="wrapper">
       
         <h1>Coding Quiz</h1>
       
       <div class="card">
         <div class="card-header">
-          <p>Test your skills with this coding quiz. If you get a question right you will score 10 points.  Get a question wrong and lose 5 points and lose 10 seconds of time.  You have 20 seconds to finish this quiz. </p>
+          <p>Test your skills with this coding quiz. If you get a question right you will score 10 points.  Get a question wrong and lose 5 points and lose 2 seconds of time.  You have 20 seconds to finish this quiz. </p>
         </div>
         <div class="card-footer">
-          <button id="start-quiz" class="btn">Take Quiz!!!</button>
-
-     
+          <button onclick="start()" id="start-quiz" class="btn">Take Quiz!!!</button>
         </div>
-     
       </div>
     </div>
+
+    <body id="quiz"></body>
+    <button id="first-answer" class="btn2"></button>
+    <button id="second-answer" class="btn2"></button>
+    <button id="third-answer" class="btn2"></button>
+    <button id="first-answer" class="btn2"></button>
+    <div id="result"></div>
+    
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

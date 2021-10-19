@@ -1,115 +1,110 @@
-// Assignment code here
+var score = 0;
+var questions = [
+  { question: "Which one is a third party API?",
+    answers: {
+      1: "Google",
+      2: "JQuery",
+      3: "CSS",
+      4: "innerhtml"
+    },
+  correctAnswer: "2"},
 
-var second = 20;
-var timer;
+  { question: "What do you close an array with?",
+    answers: {
+      1: ")",
+      2: "}",
+      3: "</array",
+      4: "]"
+    },
+  correctAnswer: "3"},
 
+  { question: "What would you use to store inputs so they can be retrieved at a later date on the website?",
+    answers: {
+      1: "CSV",
+      2: "javascript",
+      3: "web API",
+      4: "local storage"
+    },
+  correctAnswer: "4"},
 
-// Set Button to start quiz
-document.form_main.start.onclick = () => start ();
+  { question: "Which on adds a comment to your git repository?",
+    answers: {
+      1: "git add",
+      2: "git clone",
+      3: "git commit",
+      4: "git push"
+    },
+  correctAnswer: "3"},
 
-function start() {
-  pause();
-  cron = setInterval(() => { timer(); }, 10);
+  { question: "What value does math.random return?",
+    answers: {
+      1: "1 to 9",
+      2: "1 to 100",
+      3: "0 to 10",
+      4: "0 to 1"
+    },
+  correctAnswer: "4"},
+]
+
+// start timer
+function startTimer(){
+  var counter = 21;
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      span = document.getElementById("second");
+      span.innerHTML = "Time Left: " + counter;
+    }
+    if (counter === 0) {
+        alert('sorry, out of time');
+        clearInterval(counter);
+    }
+  }, 1000);
 }
+function start()
+{
+    document.getElementById("start-quiz");
+    startTimer();
 
-var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", generatePassword);
+    console.log(startTimer)
+};
 
-// Password Length function
 
-function getPasswordLength() {
+function quiz(){
+   
+   var choice = [];
   
-  var length = parseInt(prompt("What length would you like for the password? (min: 8, max: 128)"));
-
-
-
-  while (length < 8 || length > 128 || isNaN(length)) {
-   alert("Invalid length. Re-enter length.");
-   length = parseInt(prompt("What length would you like for the password? (min: 8, max: 128)"));
+    // for each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+  
+        // variable to store the list of possible answers
+        const answers = [];
+  
+        // and for each available answer...
+        for(letter in currentQuestion.answers){
+  
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+  
+        // add this question and its answers to the output
+        output.push(
+          `<div class="question"> ${currentQuestion.question} </div>
+          <div class="answers"> ${answers.join('')} </div>`
+        );
+      }
+    );
+  
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join('');
   }
-
-  return length;
-  
 }
 
-//generate password function - sets character requirements, generates a random password from a set of character, and push text of password to screen.
-function generatePassword() {
-    var length = getPasswordLength();
-    var password = "";
-    var numbers = prompt("Do you want numbers in your password?")
-    var numbers = numbers.toLowerCase()
-    if(numbers === "yes") {
-      characterPool.push.apply(characterPool, numbersList);
-      numbers1 = Math.floor(Math.random() *numbersList.length);
-      passwordTemp.push(numbersList[numbers1]);
-      } else {
-        numbers1 = Math.floor(Math.random() *doNotInclude.length);
-    }     
-      
-      
-      
-      
-    var upperCase = window.prompt("Do you want uppercase letters in your password?");
-    var upperCase1 = upperCase.toLowerCase()
-    if(upperCase1 === "yes") {
-      characterPool.push.apply(characterPool, upperCase2);
-      upperCase3 = Math.floor(Math.random() * upperCase2.length);  
-      passwordTemp.push(upperCase2[upperCase3]);
-      } else {
-        upperCase3 = Math.floor(Math.random() *doNotInclude.length);
-    }   
-  
-    var lowerCase = prompt("Do you want lower case letters in your password?");
-    var lowerCase1= lowerCase.toLowerCase();
-    if(lowerCase1 === "yes") {
-      characterPool.push.apply(characterPool, lowerCase2);
-      lowerCase3 = Math.floor(Math.random() *lowerCase2.length);
-      passwordTemp.push(lowerCase2[lowerCase3]);
-      } else {
-          lowerCase3 = Math.floor(Math.random() *doNotInclude.length);
-    }
-  
-    var specialCharacters = prompt("Do you want special characters in your password?");
-    var specialCharacters1 = specialCharacters.toLowerCase();
-    if(specialCharacters1 === "yes") {
-      characterPool.push.apply(characterPool, specialChar);
-      specialChar1 = Math.floor(Math.random() *specialChar.length);
-      passwordTemp.push(specialChar[specialChar1])
-      } else {
-          specialChar1 = Math.floor(Math.random() *doNotInclude.length);
-    }
-      // This line makes sure the password includes the characters based on the asked questions. 
-      password = passwordTemp.join("");
-    
-      // check that criteria is met
-    if(numbers + upperCase1 + lowerCase1 + specialCharacters1 === "nononono") {
-      alert("Need to include at least on number, upper case letter, lower case letter, or special character");
-      
-      return generatePassword();
-       } else {
-        
-    }
-      
-      // adds the required amount of characters based on the first question and randomizes it for a unique password. 
-    while (password.length < length){
-      password += characterPool[Math.floor(Math.random() *characterPool.length)];
-      
-    }
-      var passwordReshuffle = password.split('').sort(function(){return 0.5-Math.random()}).join('');
-
-      // oushes password to password box on screen. 
-      var passwordText = document.querySelector("#password");
-      passwordText.value = passwordReshuffle;
-      
-      return passwordReshuffle;
-    
-    }
-
-
-      
-    
-
-
-
-
-
+function 

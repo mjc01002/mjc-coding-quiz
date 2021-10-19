@@ -34,7 +34,12 @@ header {
   color: var(--highlight);
 }
 
-
+.header-timer {
+  text-align: right;
+  font-size: 28px;
+  color: var(--red);
+  font-weight: bold;
+}
 
 
 .wrapper {
@@ -45,6 +50,11 @@ header {
 
 .wrapper h1{
   text-align: center;
+  color: var(--background);
+ }
+
+ .wrapper h2{
+  text-align: left;
   color: var(--background);
  }
  
