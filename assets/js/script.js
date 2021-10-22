@@ -11,7 +11,7 @@ var answer1 = [
   "Google",
   "JQuery",
   "CSS",
-  "innerhtml"
+  "innerhtml", "test"
 ]
 var questions1 = [
   { question: "Which one is a third party API?",
@@ -84,7 +84,7 @@ function start()
 
   var targetDiv = document.getElementById("wrapper")
   var timeHeader = document.getElementById("second")
-  var output = "";
+ 
 
     if (targetDiv.style.display !== "none") {
       targetDiv.style.display = "none";
@@ -95,33 +95,43 @@ function start()
       timeHeader.style.display = "none";
     }
 
-    div = document.getElementById("quiz"),
-    div = document.getElementById("first-answer").style.display="block";
-    div = document.getElementById("second-answer").style.display="block"; 
-    div = document.getElementById("second-answer").style.display="block"; 
-    div = document.getElementById("second-answer").style.display="block";  
-    output = questions[0];
-    //div.innerHTML=output;
-    //div.innerHTML;
-   
-  
-    
-    
-   // .concat(answer1[0], answer1[1]);
+     const firstanswer = document.getElementById("first-answer");
+     const secondanswer = document.getElementById("second-answer");
+     const thirdanswer = document.getElementById("third-answer");
+     const fourthanswer = document.getElementById("fourth-answer");
+     const firstQuestion = document.getElementById("quiz1");
+     firstQuestion.innerHTML = questions[0];
+     
+     for (var i = 0; i < 1; i++) {
+       const button1 = document.createElement("button1");
+       const button2 = document.createElement("button2");
+       const button3 = document.createElement("button3");
+       const button4 = document.createElement("button4");
+       const answer = document.createElement("answer");
+      
+        button1.innerText = answer1[0];
+        button2.innerText = answer1[1];
+        button3.innerText = answer1[2];
+        button4.innerText = answer1[3];
+        addEventListener("click", function() {
+         
+       })
+
+       firstanswer.appendChild(button1);
+       secondanswer.appendChild(button2);
+       thirdanswer.appendChild(button3);
+       fourthanswer.appendChild(button4);
+
+      }
+     
+        document.getElementById ("answser").innerHTML = "Incorrect";
+       
+
+      
+      };   
     
 
-    
-};
 
-var elements = document.getElementsByClassName("btn");
-var names = '';
-for(var i = 0; i < elements.length; i++) {
-names += elements[i].name;
-}
-document.write(names);
-console.log(names);
-
- console.log(answer1);
 
 // quiz section
 function quiz(){
