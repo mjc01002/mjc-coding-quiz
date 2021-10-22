@@ -1,5 +1,19 @@
 var score = 0;
 var questions = [
+  "Which one is a third party API?",
+  "What do you close an array with?",
+  "What would you use to store inputs so they can be retrieved at a later date on the website?",
+  "Which on adds a comment to your git repository?",
+  "What value does math.random return?"
+]
+
+var answer1 = [
+  "Google",
+  "JQuery",
+  "CSS",
+  "innerhtml"
+]
+var questions1 = [
   { question: "Which one is a third party API?",
     answers: {
       1: "Google",
@@ -45,7 +59,7 @@ var questions = [
     },
   correctAnswer: "4"},
 ]
-
+console.log(questions);
 // start timer
 function startTimer(){
   var counter = 21;
@@ -65,21 +79,61 @@ function start()
 {
     document.getElementById("start-quiz");
     startTimer();
-
+   
     console.log(startTimer)
+
+  var targetDiv = document.getElementById("wrapper")
+  var timeHeader = document.getElementById("second")
+  var output = "";
+
+    if (targetDiv.style.display !== "none") {
+      targetDiv.style.display = "none";
+      timeHeader.style.display = "block";
+      
+    } else {
+      targetDiv.style.display = "block";
+      timeHeader.style.display = "none";
+    }
+
+    div = document.getElementById("quiz"),
+    div = document.getElementById("first-answer").style.display="block";
+    div = document.getElementById("second-answer").style.display="block"; 
+    div = document.getElementById("second-answer").style.display="block"; 
+    div = document.getElementById("second-answer").style.display="block";  
+    output = questions[0];
+    //div.innerHTML=output;
+    //div.innerHTML;
+   
+  
+    
+    
+   // .concat(answer1[0], answer1[1]);
+    
+
+    
 };
 
+var elements = document.getElementsByClassName("btn");
+var names = '';
+for(var i = 0; i < elements.length; i++) {
+names += elements[i].name;
+}
+document.write(names);
+console.log(names);
 
+ console.log(answer1);
+
+// quiz section
 function quiz(){
    
    var choice = [];
   
     // for each question...
-    myQuestions.forEach(
+    questions.forEach(
       (currentQuestion, questionNumber) => {
   
         // variable to store the list of possible answers
-        const answers = [];
+        var answers = [];
   
         // and for each available answer...
         for(letter in currentQuestion.answers){
@@ -105,6 +159,3 @@ function quiz(){
     // finally combine our output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join('');
   }
-}
-
-function 
