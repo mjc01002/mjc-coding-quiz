@@ -69,6 +69,7 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  text-align: center;
 }
 
 .card2 {
@@ -80,6 +81,8 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  text-align: center;
+}
 }
 
 .answer {
@@ -91,6 +94,8 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  text-align: center;
+}
   
 }
 
@@ -119,11 +124,7 @@ header {
   height: 2px;
 }
 
-.card-footer::after {
-  content: " ";
-  display: block;
-  clear: both;
-}
+
 
 .btn {
   border: none;
@@ -139,6 +140,9 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  width: 30%;
+  margin-left: auto;
+    margin-right: auto;
 }
 
 .btn:hover {
@@ -160,6 +164,9 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn2:hover {
@@ -167,36 +174,12 @@ header {
   color: var(--red);
 }
 
-button[disabled] {
-  cursor: default;
-  background: #adadad;
-}
-
+b
 .float-right {
   float: right;
 }
 
-#password {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  display: block;
-  width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px dashed var(--highlight);
-  border-radius: 6px;
-  resize: none;
-  overflow: hidden;
-  background-color: var(--green);
-}
+
 
 
 @media (max-width: 690px) {
@@ -206,10 +189,7 @@ button[disabled] {
     padding: 10px 15px;
   }
 
-  #password {
-    font-size: 1rem;
-  }
-}
+  
 
 @media (max-width: 500px) {
   .btn {

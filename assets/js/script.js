@@ -11,58 +11,40 @@ var answer1 = [
   "Google",
   "JQuery",
   "CSS",
-  "innerhtml", "test"
+  "innerhtml",
+  ""
 ]
-var questions1 = [
-  { question: "Which one is a third party API?",
-    answers: {
-      1: "Google",
-      2: "JQuery",
-      3: "CSS",
-      4: "innerhtml"
-    },
-  correctAnswer: "2"},
-
-  { question: "What do you close an array with?",
-    answers: {
-      1: ")",
-      2: "}",
-      3: "</array",
-      4: "]"
-    },
-  correctAnswer: "3"},
-
-  { question: "What would you use to store inputs so they can be retrieved at a later date on the website?",
-    answers: {
-      1: "CSV",
-      2: "javascript",
-      3: "web API",
-      4: "local storage"
-    },
-  correctAnswer: "4"},
-
-  { question: "Which on adds a comment to your git repository?",
-    answers: {
-      1: "git add",
-      2: "git clone",
-      3: "git commit",
-      4: "git push"
-    },
-  correctAnswer: "3"},
-
-  { question: "What value does math.random return?",
-    answers: {
-      1: "1 to 9",
-      2: "1 to 100",
-      3: "0 to 10",
-      4: "0 to 1"
-    },
-  correctAnswer: "4"},
+var answer2 = [
+  ")",
+  "}",
+  "</array",
+  "]"
 ]
-console.log(questions);
+ 
+var answer3 = [
+    "CSV",
+    "javascript",
+    "web API",
+    "local storage"
+]
+
+var answer4 =[
+    "git add",
+    "git clone",
+    "git commit",
+    "git push"
+]
+
+var answer5 =[
+    "1 to 9",
+    "1 to 100",
+    "0 to 10",
+    "0 to 1"
+]
+
 // start timer
+var counter = 21;
 function startTimer(){
-  var counter = 21;
   setInterval(function() {
     counter--;
     if (counter >= 0) {
@@ -74,13 +56,13 @@ function startTimer(){
         clearInterval(counter);
     }
   }, 1000);
+  return counter;
 }
+//quiz
 function start()
 {
     document.getElementById("start-quiz");
     startTimer();
-   
-    console.log(startTimer)
 
   var targetDiv = document.getElementById("wrapper")
   var timeHeader = document.getElementById("second")
@@ -107,7 +89,7 @@ function start()
        const button2 = document.createElement("button2");
        const button3 = document.createElement("button3");
        const button4 = document.createElement("button4");
-       const answer = document.createElement("answer");
+       
       
         button1.innerText = answer1[0];
         button2.innerText = answer1[1];
@@ -124,12 +106,115 @@ function start()
 
       }
      
-        document.getElementById ("answser").innerHTML = "Incorrect";
-       
+        document.getElementById ("first-answer").onclick = function(){
+          const answer = document.getElementById("answer");
+          answer.innerHTML = "Incorrect";
+          counter -= 2;
+          document.getElementById("second").innerHTML = "Time Left: " + counter;
+        
+        }
+        
+       document.getElementById ("second-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        answer.innerHTML = "You are correct!!!";
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        secondQuestion();
+        
+      } 
 
+      document.getElementById ("third-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        answer.innerHTML = "Incorrect";
+        counter -= 2;
+        document.getElementById("second").innerHTML = "Time Left: " + counter;
+          
+      } 
+
+      document.getElementById ("fourth-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        answer.innerHTML = "Incorrect";
+        counter -= 2;
+        document.getElementById("second").innerHTML = "Time Left: " + counter;
+          
+      } 
       
       };   
+ 
+function secondQuestion(){
+  
+    var targetDiv = document.getElementById("wrapper")
+    var timeHeader = document.getElementById("second")
     
+    targetDiv.style.display = "none";
+    timeHeader.style.display = "block";
+    
+
+    
+   const firstanswer = document.getElementById("first-answer");
+   const secondanswer = document.getElementById("second-answer");
+   const thirdanswer = document.getElementById("third-answer");
+   const fourthanswer = document.getElementById("fourth-answer");
+   const firstQuestion = document.getElementById("quiz1");
+   firstQuestion.innerHTML = questions[1];
+   
+   for (var i = 0; i < 1; i++) {
+     const button1 = document.createElement("button1");
+     const button2 = document.createElement("button2");
+     const button3 = document.createElement("button3");
+     const button4 = document.createElement("button4");
+     
+    
+      button1.innerText = answer2[0];
+      button2.innerText = answer2[1];
+      button3.innerText = answer2[2];
+      button4.innerText = answer2[3];
+      addEventListener("click", function() {
+       
+     })
+
+     firstanswer.appendChild(button1);
+     secondanswer.appendChild(button2);
+     thirdanswer.appendChild(button3);
+     fourthanswer.appendChild(button4);
+
+    }
+   
+      document.getElementById ("first-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        answer.innerHTML = "Incorrect";
+        counter -= 2;
+        document.getElementById("second").innerHTML = "Time Left: " + counter;
+      
+      }
+      
+     document.getElementById ("second-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      counter -= 2;
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+        
+    } 
+
+    document.getElementById ("third-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "You are correct!!!";
+
+    } 
+
+    document.getElementById ("fourth-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      counter -= 2;
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+        
+    } 
+    
+    };   
+
+ 
 
 
 
