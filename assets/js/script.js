@@ -1,4 +1,9 @@
 var score = [];
+var allScores = [{
+  initials:0 ,
+  sum:0
+}];
+
 var questions = [
   "Which one is a third party API?",
   "What do you close an array with?",
@@ -589,14 +594,18 @@ function scoreandinitials(){
       let sum = 0;
 
       for (let i = 0; i < score.length; i++) {
-        sum += score[i];
+        sum += parseInt(score[i]);
       }
-      console.log(sum);
-
+      
       document.getElementById ("submit").onclick = function(){
       var initials = document.getElementById("Inititals").value;
+
+      allScores.push[{initials:"mjc", sum:"25"}];
       
-      localStorage.setItem("Initials" , initials, "Score", score);
+      
+      localStorage.setItem( "Score", JSON.stringify(sum));
+      localStorage.setItem( "Initials", initials);
+      localStorage.setItem( "Score and Initials", JSON.stringify(allScores));
       
       }
     };
