@@ -1,7 +1,5 @@
 var score = [];
 var allScores = [{
-  initials:0 ,
-  sum:0
 }];
 
 var questions = [
@@ -46,6 +44,9 @@ var answer5 =[
   "0 to 10",
   "0 to 1"
 ]
+
+
+
 // function for quiz timer
 var counter = 20;
 function startTimer(){
@@ -66,6 +67,7 @@ function startTimer(){
 
 document.getElementById("quiz").style.display = "none";
 document.getElementById("results").style.display = "none";
+document.getElementById("scores").style.display = "none";
 // starts quiz and has first question information
 function firstQuestion()
 {
@@ -77,17 +79,21 @@ function firstQuestion()
 
   var targetDiv = document.getElementById("wrapper")
   var timeHeader = document.getElementById("second")
+  var scores = document.getElementById("scores")
 
     if (targetDiv.style.display !== "none") {
       targetDiv.style.display = "none";
       timeHeader.style.display = "block";
       quiz.style.display = "block";
+      scores.style.display = "none";
+
       
       
     } else {
       targetDiv.style.display = "block";
       timeHeader.style.display = "none";
       quiz.style.display = "block";
+      scores.style.display = "none";
       
     }
 
@@ -563,7 +569,7 @@ function fifthQuestion(){
 
   // score and inititals input
 function scoreandinitials(){
-
+      
       var Question = document.getElementById("quiz1")
       var targetDiv = document.getElementById("results")
       var firstanswer = document.getElementById("first-answer")
@@ -600,14 +606,42 @@ function scoreandinitials(){
       document.getElementById ("submit").onclick = function(){
       var initials = document.getElementById("Inititals").value;
 
-      allScores.push[{initials:"mjc", sum:"25"}];
+      allScores.push({initials, sum});
       
       
-      localStorage.setItem( "Score", JSON.stringify(sum));
-      localStorage.setItem( "Initials", initials);
-      localStorage.setItem( "Score and Initials", JSON.stringify(allScores));
-      
+      localStorage.setItem("Score", JSON.stringify(sum));
+      localStorage.setItem("Initials", initials);
+      localStorage.setItem("Score and Initials", JSON.stringify(allScores));
+
+      location.reload();
+      return false;
       }
     };
 
+  function scores(){
+      var targetDiv = document.getElementById("wrapper")
+      var scores = document.getElementById("scores")
+      const quiz3 = document.getElementById("back-to-quiz")
+     
+      targetDiv.style.display = "none";
+      scores.style.display = "block";
+      quiz3.style.display = "block";
+
+      for (var i = 0; i < 1; i++) {
+        const button5 = document.createElement("button5");
+ 
+        button5.innerText = "Go Back to Quiz";
+       
+        addEventListener("click", function() {
+        })
+      
+        quiz3.appendChild(button5);
+       
+      
+       }
+
+      const scores2 = document.getElementById("scores2");
+      var scores1 = localStorage.getItem("Initials") + " " + localStorage.getItem("Score");
+      scores2.innerHTML = "High Scores - " + scores1;
+  };
 

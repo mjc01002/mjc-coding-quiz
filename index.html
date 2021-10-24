@@ -7,11 +7,12 @@
     <title>MJC Coding Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
-  <header>View High Scores</header>
+  <header>
+    <a onclick="scores()" href="#scores" >View High Scores</a></header>
 
   <form class="header-timer" name="form_main">
     <div>
-      <span id="second"></span>
+      <span id="second" class="quiz2"></span>
     </div>
   </form>
 
@@ -51,6 +52,12 @@
       </form>
     </p>
     </div>
+
+    <div class="card" id="scores">
+      <div id="scores2"></div>
+      <button onclick="location.reload()" id="back-to-quiz" class="btn2"></button>
+      
+      </div>
 
     <script src="./assets/js/script.js"></script>
   </body>
