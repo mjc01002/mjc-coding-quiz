@@ -8,7 +8,9 @@ This project is to create a coding quiz where the answer answers questions in a 
 
 ![alt text](/assets/images/quiz screen shot.PNG?raw=true)
 
+https://github.com/mjc01002/mjc-coding-quiz/blob/main/assets/images/quiz%20screen%20shot.PNG
+
 ## Link to Website
 https://mjc01002.github.io/mjc-coding-quiz//
 
-https://github.com/mjc01002/mjc-coding-quiz/blob/main/assets/images/quiz%20screen%20shot.PNG
+
