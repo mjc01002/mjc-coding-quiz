@@ -594,30 +594,32 @@ function scoreandinitials(){
       quiz.style.display = "none";
 
       // add up score
-      
-
-      
+    
       let sum = 0;
 
       for (let i = 0; i < score.length; i++) {
         sum += parseInt(score[i]);
       }
-      
+      console.log("score:" + score)
+      console.log("sum" + sum)
+
       document.getElementById ("submit").onclick = function(){
       var initials = document.getElementById("Inititals").value;
-
+      
+      allScores.push(JSON.parse(localStorage.getItem("Score and Initials")));
       allScores.push({initials, sum});
-      
-      
+      console.log(allScores);
+
       localStorage.setItem("Score", JSON.stringify(sum));
       localStorage.setItem("Initials", initials);
       localStorage.setItem("Score and Initials", JSON.stringify(allScores));
 
-      location.reload();
-      return false;
+     // location.reload();
+     // return false;
       }
     };
-
+    
+    // display scores and initials
   function scores(){
       var targetDiv = document.getElementById("wrapper")
       var scores = document.getElementById("scores")
@@ -641,7 +643,7 @@ function scoreandinitials(){
        }
 
       const scores2 = document.getElementById("scores2");
-      var scores1 = localStorage.getItem("Initials") + " " + localStorage.getItem("Score");
-      scores2.innerHTML = "High Scores - " + scores1;
+      //var scores1 = localStorage.getItem("Initials") + " " + localStorage.getItem("Score");
+      scores2.innerHTML = "High Scores - " + allScores;
   };
 
