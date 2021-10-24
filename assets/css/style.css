@@ -83,14 +83,14 @@ header {
   padding: 30px 40px;
   text-align: center;
 }
-}
+
 
 .answer {
   background-color: var(--background);
   border-radius: 5px;
   border-width: 1px;
   color: var(--textcolor);
-  font-size: 24px;
+  font-size: 36px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;

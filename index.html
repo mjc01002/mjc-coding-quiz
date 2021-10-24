@@ -25,12 +25,12 @@
           <p>Test your skills with this coding quiz. If you get a question right you will score 10 points.  Get a question wrong and lose 5 points and lose 2 seconds of time.  You have 20 seconds to finish this quiz. </p>
         </div>
         <div class="card-footer">
-          <button onclick="start()" id="start-quiz" value="Show/Hide" class="btn">Take Quiz!!!</button>
+          <button onclick="firstQuestion()" id="start-quiz" value="Show/Hide" class="btn">Take Quiz!!!</button>
         </div>
       </div>
     </div>
 
-    <div class="wrapper">
+   
     <div class="card" id = "quiz">
       <div id="quiz1" class="card2"></div>
       <button id="first-answer" class="btn2"></button>
@@ -38,17 +38,20 @@
       <button id="third-answer" class="btn2"></button>
       <button id="fourth-answer" class="btn2"></button>
       <div id = "answer" class="answer"></div>
+    
     </div>
-  </div>
 
-    
-    <div id="question123"><sdiv>
-    
-    <button id="second-answer" class="btn"></button>
-    <button id="third-answer" class="btn"></button>
-    <button id="first-answer" class="btn"></button>
-    <div id="result"></div>
-    
+    <div class="card" id="results">
+    <h1>All Done!!!</h1>
+    <h2>Your score is</h2><div id="results"></div>
+    <p>Enter Your Initials Below
+      <form>
+        <input type = "text" id = "Inititals"><br>
+        <button id="submit" class="btn">Submit</button>
+      </form>
+    </p>
+    </div>
+
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

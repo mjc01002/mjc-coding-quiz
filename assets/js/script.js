@@ -1,9 +1,9 @@
-var score = 0;
+var score = [];
 var questions = [
   "Which one is a third party API?",
   "What do you close an array with?",
-  "What would you use to store inputs so they can be retrieved at a later date on the website?",
-  "Which on adds a comment to your git repository?",
+  "What would you use to store inputs so they can be retrieved at a later date on a website?",
+  "Which adds a comment when updating your git repository?",
   "What value does math.random return?"
 ]
 
@@ -22,28 +22,27 @@ var answer2 = [
 ]
  
 var answer3 = [
-    "CSV",
-    "javascript",
-    "web API",
-    "local storage"
+  "CSV",
+  "javascript",
+  "web API",
+  "local storage"
 ]
 
 var answer4 =[
-    "git add",
-    "git clone",
-    "git commit",
-    "git push"
+  "git add",
+  "git clone",
+  "git commit",
+  "git push"
 ]
 
 var answer5 =[
-    "1 to 9",
-    "1 to 100",
-    "0 to 10",
-    "0 to 1"
+  "1 to 9",
+  "1 to 100",
+  "0 to 10",
+  "0 to 1"
 ]
-
-// start timer
-var counter = 21;
+// function for quiz timer
+var counter = 20;
 function startTimer(){
   setInterval(function() {
     counter--;
@@ -52,37 +51,47 @@ function startTimer(){
       span.innerHTML = "Time Left: " + counter;
     }
     if (counter === 0) {
-        alert('sorry, out of time');
-        clearInterval(counter);
+      clearInterval(counter);
+      scoreandinitials();
     }
   }, 1000);
   return counter;
-}
-//quiz
-function start()
+};
+
+
+document.getElementById("quiz").style.display = "none";
+document.getElementById("results").style.display = "none";
+// starts quiz and has first question information
+function firstQuestion()
 {
+  
     document.getElementById("start-quiz");
     startTimer();
 
+    
+
   var targetDiv = document.getElementById("wrapper")
   var timeHeader = document.getElementById("second")
- 
 
     if (targetDiv.style.display !== "none") {
       targetDiv.style.display = "none";
       timeHeader.style.display = "block";
+      quiz.style.display = "block";
+      
       
     } else {
       targetDiv.style.display = "block";
       timeHeader.style.display = "none";
+      quiz.style.display = "block";
+      
     }
 
-     const firstanswer = document.getElementById("first-answer");
+     const firstanswer = document.getElementById("first-answer")
      const secondanswer = document.getElementById("second-answer");
      const thirdanswer = document.getElementById("third-answer");
      const fourthanswer = document.getElementById("fourth-answer");
-     const firstQuestion = document.getElementById("quiz1");
-     firstQuestion.innerHTML = questions[0];
+     const Question = document.getElementById("quiz1");
+     Question.innerHTML = questions[0];
      
      for (var i = 0; i < 1; i++) {
        const button1 = document.createElement("button1");
@@ -108,41 +117,62 @@ function start()
      
         document.getElementById ("first-answer").onclick = function(){
           const answer = document.getElementById("answer");
-          answer.innerHTML = "Incorrect";
           counter -= 2;
+          score.push([-5]);
           document.getElementById("second").innerHTML = "Time Left: " + counter;
+          firstanswer.innerHTML = "";
+          secondanswer.innerHTML = "";
+          thirdanswer.innerHTML = "";
+          fourthanswer.innerHTML = "";
+          answer.innerHTML = "Incorrect";
+          secondQuestion();
+        
+          
         
         }
         
        document.getElementById ("second-answer").onclick = function(){
         const answer = document.getElementById("answer");
-        answer.innerHTML = "You are correct!!!";
+        score.push([10]);
         firstanswer.innerHTML = "";
         secondanswer.innerHTML = "";
         thirdanswer.innerHTML = "";
         fourthanswer.innerHTML = "";
+        answer.innerHTML = "You are correct!!!";
         secondQuestion();
         
       } 
 
       document.getElementById ("third-answer").onclick = function(){
         const answer = document.getElementById("answer");
-        answer.innerHTML = "Incorrect";
         counter -= 2;
+        score.push([-5]);
         document.getElementById("second").innerHTML = "Time Left: " + counter;
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        answer.innerHTML = "Incorrect";
+        secondQuestion();
           
       } 
 
       document.getElementById ("fourth-answer").onclick = function(){
         const answer = document.getElementById("answer");
-        answer.innerHTML = "Incorrect";
         counter -= 2;
+        score.push([-5]);
         document.getElementById("second").innerHTML = "Time Left: " + counter;
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        answer.innerHTML = "Incorrect";
+        secondQuestion();
           
       } 
       
-      };   
- 
+};   
+
 function secondQuestion(){
   
     var targetDiv = document.getElementById("wrapper")
@@ -157,8 +187,8 @@ function secondQuestion(){
    const secondanswer = document.getElementById("second-answer");
    const thirdanswer = document.getElementById("third-answer");
    const fourthanswer = document.getElementById("fourth-answer");
-   const firstQuestion = document.getElementById("quiz1");
-   firstQuestion.innerHTML = questions[1];
+   const Question = document.getElementById("quiz1");
+   Question.innerHTML = questions[1];
    
    for (var i = 0; i < 1; i++) {
      const button1 = document.createElement("button1");
@@ -184,73 +214,386 @@ function secondQuestion(){
    
       document.getElementById ("first-answer").onclick = function(){
         const answer = document.getElementById("answer");
-        answer.innerHTML = "Incorrect";
         counter -= 2;
+        score.push([-5]);
         document.getElementById("second").innerHTML = "Time Left: " + counter;
-      
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        answer.innerHTML = "Incorrect";
+        
+        thirdQuestion();
+        
       }
       
      document.getElementById ("second-answer").onclick = function(){
       const answer = document.getElementById("answer");
-      answer.innerHTML = "Incorrect";
       counter -= 2;
+      score.push([-5]);
       document.getElementById("second").innerHTML = "Time Left: " + counter;
-        
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      answer.innerHTML = "Incorrect";
+      thirdQuestion();
+          
     } 
 
     document.getElementById ("third-answer").onclick = function(){
       const answer = document.getElementById("answer");
+      score.push([10]);
       answer.innerHTML = "You are correct!!!";
-
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      thirdQuestion();
     } 
 
     document.getElementById ("fourth-answer").onclick = function(){
       const answer = document.getElementById("answer");
-      answer.innerHTML = "Incorrect";
       counter -= 2;
+      score.push([-5]);
       document.getElementById("second").innerHTML = "Time Left: " + counter;
-        
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      answer.innerHTML = "Incorrect";
+      thirdQuestion();
+         
     } 
     
+};   
+
+function thirdQuestion(){
+  
+  var targetDiv = document.getElementById("wrapper")
+  var timeHeader = document.getElementById("second")
+      
+      targetDiv.style.display = "none";
+      timeHeader.style.display = "block";
+      
+  
+      
+  const firstanswer = document.getElementById("first-answer");
+  const secondanswer = document.getElementById("second-answer");
+  const thirdanswer = document.getElementById("third-answer");
+  const fourthanswer = document.getElementById("fourth-answer");
+  const Question = document.getElementById("quiz1");
+  Question.innerHTML = questions[2];
+     
+  for (var i = 0; i < 1; i++) {
+    const button1 = document.createElement("button1");
+    const button2 = document.createElement("button2");
+    const button3 = document.createElement("button3");
+    const button4 = document.createElement("button4");
+       
+      
+    button1.innerText = answer3[0];
+    button2.innerText = answer3[1];
+    button3.innerText = answer3[2];
+    button4.innerText = answer3[3];
+    addEventListener("click", function() {
+         
+    })
+  
+    firstanswer.appendChild(button1);
+    secondanswer.appendChild(button2);
+    thirdanswer.appendChild(button3);
+    fourthanswer.appendChild(button4);
+  
+   }
+     
+    document.getElementById ("first-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      counter -= 2;
+      score.push([-5]);
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fourthQuestion(); 
+          
+    }
+        
+    document.getElementById ("second-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      counter -= 2;
+      score.push([-5]);
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fourthQuestion(); 
+            
+    } 
+  
+    document.getElementById ("third-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      counter -= 2;
+      score.push([-5]);
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fourthQuestion(); 
+            
+  
+      } 
+  
+    document.getElementById ("fourth-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      score.push([10]);
+      answer.innerHTML = "You are correct!!!";
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fourthQuestion(); 
+        
+      } 
+};   
+
+function fourthQuestion(){
+  
+  var targetDiv = document.getElementById("wrapper")
+  var timeHeader = document.getElementById("second")
+      
+    targetDiv.style.display = "none";
+    timeHeader.style.display = "block";
+      
+  
+      
+  const firstanswer = document.getElementById("first-answer");
+  const secondanswer = document.getElementById("second-answer");
+  const thirdanswer = document.getElementById("third-answer");
+  const fourthanswer = document.getElementById("fourth-answer");
+  const Question = document.getElementById("quiz1");
+  Question.innerHTML = questions[3];
+     
+  for (var i = 0; i < 1; i++) {
+    const button1 = document.createElement("button1");
+    const button2 = document.createElement("button2");
+    const button3 = document.createElement("button3");
+    const button4 = document.createElement("button4");
+       
+      
+    button1.innerText = answer4[0];
+    button2.innerText = answer4[1];
+    button3.innerText = answer4[2];
+    button4.innerText = answer4[3];
+    addEventListener("click", function() {
+         
+    })
+  
+    firstanswer.appendChild(button1);
+    secondanswer.appendChild(button2);
+    thirdanswer.appendChild(button3);
+    fourthanswer.appendChild(button4);
+  
+   }
+     
+    document.getElementById ("first-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      counter -= 2;
+      score.push([-5]);
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fifthQuestion(); 
+          
+    }
+        
+    document.getElementById ("second-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      counter -= 2;
+      score.push([-5]);
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fifthQuestion();    
+    } 
+  
+    document.getElementById ("third-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      score.push([10]);
+      answer.innerHTML = "You are correct!!!";
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fifthQuestion(); 
+        
+    } 
+  
+    document.getElementById ("fourth-answer").onclick = function(){
+      const answer = document.getElementById("answer");
+      answer.innerHTML = "Incorrect";
+      score.push([-5]);
+      counter -= 2;
+      document.getElementById("second").innerHTML = "Time Left: " + counter;
+      firstanswer.innerHTML = "";
+      secondanswer.innerHTML = "";
+      thirdanswer.innerHTML = "";
+      fourthanswer.innerHTML = "";
+      fifthQuestion();
+          
+    } 
+  };   
+
+function fifthQuestion(){
+  
+    var targetDiv = document.getElementById("wrapper")
+    var timeHeader = document.getElementById("second")
+        
+        targetDiv.style.display = "none";
+        timeHeader.style.display = "block";
+        
+    
+        
+    const firstanswer = document.getElementById("first-answer");
+    const secondanswer = document.getElementById("second-answer");
+    const thirdanswer = document.getElementById("third-answer");
+    const fourthanswer = document.getElementById("fourth-answer");
+    const Question = document.getElementById("quiz1");
+    Question.innerHTML = questions[4];
+       
+    for (var i = 0; i < 1; i++) {
+      const button1 = document.createElement("button1");
+      const button2 = document.createElement("button2");
+      const button3 = document.createElement("button3");
+      const button4 = document.createElement("button4");
+         
+        
+      button1.innerText = answer5[0];
+      button2.innerText = answer5[1];
+      button3.innerText = answer5[2];
+      button4.innerText = answer5[3];
+      addEventListener("click", function() {
+      })
+    
+      firstanswer.appendChild(button1);
+      secondanswer.appendChild(button2);
+      thirdanswer.appendChild(button3);
+      fourthanswer.appendChild(button4);
+    
+     }
+       
+      document.getElementById ("first-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        answer.innerHTML = "Incorrect";
+        score.push([-5]);
+        document.getElementById("second").innerHTML = "Time Left: " + counter;
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        Question.innerHTML = "";
+        scoreandinitials();
+        
+
+      }
+          
+      document.getElementById ("second-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        answer.innerHTML = "Incorrect";
+        score.push([-5]);
+        document.getElementById("second").innerHTML = "Time Left: " + counter;
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        Question.innerHTML = "";
+        clearInterval(counter);
+        scoreandinitials();
+        
+    
+      } 
+    
+      document.getElementById ("third-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        answer.innerHTML = "Incorrect";
+        score.push([-5]);
+        document.getElementById("second").innerHTML = "Time Left: " + counter;
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        Question.innerHTML = "";
+        scoreandinitials();
+        
+        
+      } 
+    
+      document.getElementById ("fourth-answer").onclick = function(){
+        const answer = document.getElementById("answer");
+        score.push([10]);
+        answer.innerHTML = "You are correct!!!";
+        Question.innerHTML = "";
+        firstanswer.innerHTML = "";
+        secondanswer.innerHTML = "";
+        thirdanswer.innerHTML = "";
+        fourthanswer.innerHTML = "";
+        Question.innerHTML = ""; 
+        scoreandinitials();
+        
+        
+      } 
     };   
 
- 
+  // score and inititals input
+function scoreandinitials(){
 
+      var Question = document.getElementById("quiz1")
+      var targetDiv = document.getElementById("results")
+      var firstanswer = document.getElementById("first-answer")
+      var secondanswer = document.getElementById("second-answer")
+      var thirdanswer = document.getElementById("third-answer")
+      var fourthanswer = document.getElementById("fourth-answer")
+      var answer = document.getElementById("answer")
+      var timeHeader = document.getElementById("second")
+      var results = document.getElementById("results")
+      
+     
 
+      Question.style.display = "none";
+      targetDiv.style.display = "block";
+      firstanswer.style.display = "none";
+      secondanswer.style.display = "none";
+      thirdanswer.style.display = "none";
+      fourthanswer.style.display = "none";
+      answer.style.display = "none";
+      timeHeader.style.display = "none";
+      results.style.display = "block";
+      quiz.style.display = "none";
 
-// quiz section
-function quiz(){
+      // add up score
+      
+      console.log(score);
    
-   var choice = [];
-  
-    // for each question...
-    questions.forEach(
-      (currentQuestion, questionNumber) => {
-  
-        // variable to store the list of possible answers
-        var answers = [];
-  
-        // and for each available answer...
-        for(letter in currentQuestion.answers){
-  
-          // ...add an HTML radio button
-          answers.push(
-            `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
-        }
-  
-        // add this question and its answers to the output
-        output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
-        );
+    
+
+      document.getElementById ("submit").onclick = function(){
+      var initials = document.getElementById("Inititals").value;
+      
+      localStorage.setItem("Initials" , initials, "Score", score);
+      
       }
-    );
-  
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.innerHTML = output.join('');
-  }
+    };
+
+
