@@ -584,9 +584,14 @@ function scoreandinitials(){
 
       // add up score
       
-      console.log(score);
-   
-    
+
+      
+      let sum = 0;
+
+      for (let i = 0; i < score.length; i++) {
+        sum += score[i];
+      }
+      console.log(sum);
 
       document.getElementById ("submit").onclick = function(){
       var initials = document.getElementById("Inititals").value;
