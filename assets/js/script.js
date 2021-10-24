@@ -1,7 +1,5 @@
 var score = [];
-var allScores = [{
-}];
-
+var allScores=[];
 var questions = [
   "Which one is a third party API?",
   "What do you close an array with?",
@@ -614,8 +612,8 @@ function scoreandinitials(){
       localStorage.setItem("Initials", initials);
       localStorage.setItem("Score and Initials", JSON.stringify(allScores));
 
-     // location.reload();
-     // return false;
+     location.reload();
+     return false;
       }
     };
     
@@ -644,6 +642,6 @@ function scoreandinitials(){
 
       const scores2 = document.getElementById("scores2");
       //var scores1 = localStorage.getItem("Initials") + " " + localStorage.getItem("Score");
-      scores2.innerHTML = "High Scores - " + allScores;
+      scores2.innerHTML = "High Scores - " + allScores[0];
   };
 
