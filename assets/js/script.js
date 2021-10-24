@@ -604,13 +604,13 @@ function scoreandinitials(){
       document.getElementById ("submit").onclick = function(){
       var initials = document.getElementById("Inititals").value;
       
-      allScores.push(JSON.parse(localStorage.getItem("Score and Initials")));
+      allScores.push(JSON.parse(localStorage.getItem("scoreAndInitials")));
       allScores.push({initials, sum});
       console.log(allScores);
 
       localStorage.setItem("Score", JSON.stringify(sum));
       localStorage.setItem("Initials", initials);
-      localStorage.setItem("Score and Initials", JSON.stringify(allScores));
+      localStorage.setItem("scoreAndInitials", JSON.stringify(allScores));
 
      location.reload();
      return false;
@@ -638,10 +638,18 @@ function scoreandinitials(){
         quiz3.appendChild(button5);
        
       
-       }
+        allScores = JSON.parse(localStorage.getItem("scoreAndInitials"))
 
-      const scores2 = document.getElementById("scores2");
-      //var scores1 = localStorage.getItem("Initials") + " " + localStorage.getItem("Score");
-      scores2.innerHTML = "High Scores - " + allScores[0];
+        for (var i = 0; i < allScores; i++) {
+          document.getElementById("scores2").innerHTML = "High Scores - " + allScores;
+          document.write(allScores[i] + "<br >");
+          console.log(allScores.sum);
+          
+        }
+
+        
+      }
+    
   };
+
 
