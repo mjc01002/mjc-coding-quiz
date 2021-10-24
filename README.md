@@ -6,7 +6,7 @@ This project is to create a coding quiz where the answer answers questions in a 
 
 ## Screenshot of Website
 
-![image](assets/images/quiz screen shot.PNG?raw=true "Optional Title")
+![alt text](assets/images/quiz screen shot.PNG?raw=true "Optional Title")
 
 ## Link to Website
 https://mjc01002.github.io/mjc-coding-quiz//
