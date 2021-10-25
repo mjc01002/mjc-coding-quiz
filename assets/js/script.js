@@ -576,7 +576,7 @@ function scoreandinitials(){
       var fourthanswer = document.getElementById("fourth-answer")
       var answer = document.getElementById("answer")
       var timeHeader = document.getElementById("second")
-      var results = document.getElementById("results")
+      var results = document.getElementById("results") 
       
      
 
@@ -598,22 +598,25 @@ function scoreandinitials(){
       for (let i = 0; i < score.length; i++) {
         sum += parseInt(score[i]);
       }
-      console.log("score:" + score)
-      console.log("sum" + sum)
+
+      document.getElementById ("getScore").onclick = function(){
+        let ele = document.getElementById('score');
+        ele.innerHTML += sum;
+    }
 
       document.getElementById ("submit").onclick = function(){
       var initials = document.getElementById("Inititals").value;
       
-      allScores.push(JSON.parse(localStorage.getItem("scoreAndInitials")));
       allScores.push({initials, sum});
-      console.log(allScores);
-
-      localStorage.setItem("Score", JSON.stringify(sum));
-      localStorage.setItem("Initials", initials);
+      allScores.push(JSON.parse(localStorage.getItem([{initials,sum}])));
+      
+      localStorage.setItem("initials" , initials);
+      localStorage.setItem("sum" , sum);
       localStorage.setItem("scoreAndInitials", JSON.stringify(allScores));
+      
 
-     location.reload();
-     return false;
+      location.reload();
+      return false;
       }
     };
     
@@ -633,23 +636,23 @@ function scoreandinitials(){
         button5.innerText = "Go Back to Quiz";
        
         addEventListener("click", function() {
+  
         })
       
         quiz3.appendChild(button5);
        
       
         allScores = JSON.parse(localStorage.getItem("scoreAndInitials"))
-
-        for (var i = 0; i < allScores; i++) {
-          document.getElementById("scores2").innerHTML = "High Scores - " + allScores;
-          document.write(allScores[i] + "<br >");
-          console.log(allScores.sum);
+        
+        
+        for (var i = 0; i < allScores.length; i++) {
+          
+          document.getElementById("scores2").textContent = "High Scores  " + allScores[i].initials + allScores[i].sum + "points";
           
         }
-
         
       }
-    
+      
   };
 
 
